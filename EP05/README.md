@@ -1,5 +1,4 @@
-# 2018 Round D
-[2018 Round D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1)
+# [2018 Round D](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050ee1)
 
 ## Candies
 长为 $N$ 的数组，求其中最大的子序列的和，并满足以下条件：
