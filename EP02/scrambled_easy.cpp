@@ -5,14 +5,14 @@ const int N = 1e6+10;
 bool exits(string s, string k) {
     if(s.length() < k.length())
         return false;
-    int mp[26], len = k.length(), diff = 0;
-    memset(mp, 0, sizeof(mp));
+    int letter[26], len = k.length(), diff = 0;
+    memset(letter, 0, sizeof(letter));
     for(int i = 0;i < k.length();i++) {
-        mp[k[i] - 'a']--;
-        mp[s[i] - 'a']++;
+        letter[k[i] - 'a']--;
+        letter[s[i] - 'a']++;
     }
     for(int i = 0;i < 26;i++)
-        if(mp[i])
+        if(letter[i])
             diff++;
     int l = 0, r = len-1;
     if(diff == 0 && k[0] == s[l] && k[len-1] == s[r]) {
@@ -23,15 +23,15 @@ bool exits(string s, string k) {
         l++;
         r++;
         
-        if(mp[s[l-1]-'a'] == 0)
+        if(letter[s[l-1]-'a'] == 0)
             diff++;
-        if(mp[s[r]-'a'] == 0)
+        if(letter[s[r]-'a'] == 0)
             diff++;
-        mp[s[l-1]-'a']--;
-        mp[s[r]-'a']++;
-        if(mp[s[l-1]-'a'] == 0)
+        letter[s[l-1]-'a']--;
+        letter[s[r]-'a']++;
+        if(letter[s[l-1]-'a'] == 0)
             diff--;
-        if(mp[s[r]-'a'] == 0)
+        if(letter[s[r]-'a'] == 0)
             diff--;
 
         if(diff == 0 && k[0] == s[l] && k[len-1] == s[r]) {
