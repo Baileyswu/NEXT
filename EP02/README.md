@@ -37,3 +37,21 @@
 E[k] = (cnt * E[k-1] + sum) /n
 ```
 其中 sum 可以事先处理好。E 也可以滚动起来，不需要开数组（之前误开了 n 的空间就悲惨了）
+
+***
+
+## Scrambled Words
+给一个字典，统计里面有多少个词以及变体出现在给定的字符串中。  
+变体：首尾字母一样，中间字符打乱。如 this 变体为 tihs。
+Small dataset (Test set 1 - Visible)
+Time limit: 20 seconds.
+1 ≤ L ≤ 1000.
+2 ≤ N ≤ 1000.
+
+Large dataset (Test set 2 - Hidden)
+Time limit: 150 seconds.
+1 ≤ L ≤ 20000.
+2 ≤ N ≤ 106.
+
+### 解答
+小数据做法：每个词可以统计出 26 个字母的出现频数。在字符串上滑动窗口，改变频数。
