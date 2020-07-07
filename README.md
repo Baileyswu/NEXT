@@ -2,8 +2,9 @@
 2020 Next Exceptional X Talent Program
 
 ## Overview
-EP02 Kick Start 2018 Round A
-EP03 Kick Start 2018 Round B
-EP04 Kick Start 2018 Round C
-EP05 Kick Start 2018 Round D
-EP06 Kick Start 2018 Round E
+- EP02 Kick Start 2018 Round A
+- EP03 Kick Start 2018 Round B
+- EP04 Kick Start 2018 Round C
+- EP05 Kick Start 2018 Round D
+- EP06 Kick Start 2018 Round E
+- EP07 Kick Start 2018 Round F
