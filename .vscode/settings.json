@@ -13,6 +13,7 @@
         "list": "cpp",
         "vector": "cpp",
         "initializer_list": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "thread": "cpp"
     }
 }
