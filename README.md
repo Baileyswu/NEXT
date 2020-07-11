@@ -10,3 +10,4 @@
 - EP07 Kick Start 2018 Round F
 - EP08 Kick Start 2018 Round G
 - EP09 Kick Start 2018 Round H
+- EP09 Kick Start 2019 Round C
