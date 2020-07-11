@@ -54,7 +54,7 @@ int main() {
             //     }
             
             queue<pair<int, int>> q;
-            set<int> future;
+            unordered_set<int> future;
             bool vis[105][105];
             memset(vis, 0, sizeof(vis));
             q.push(make_pair(sx, sy));
