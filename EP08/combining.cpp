@@ -5,6 +5,7 @@ const int N = 4e5 + 10;
 const int Q = 1e5 + 10;
 
 unordered_map<int, int> mp;
+vector<pair<int, int>> qs;
 LL query[2 * N];
 int x[N], y[N], z[Q], l[N], r[N], k[Q];
 int sc[2 * N], cnt[2 * N];
@@ -78,33 +79,28 @@ int main()
         for (int i = 1; i < sz; i++)
             cnt[i] += cnt[i - 1];
 
-        // display(sz, sc);
-        // display(sz, cnt);
-
-        // cout << all << "->" << sz << endl;
         memset(query, 0, sizeof(query));
         query[sz - 1] = cnt[sz - 1];
         for (int i = sz - 2; i >= 0; i--)
             query[i] = query[i + 1] + 1LL * (sc[i + 1] - sc[i]) * cnt[i];
-        // display(sz, query);
-        for(int i = 0;i < sz;i++)
-            query[i] = all + 1 - query[i];
-        assert(query[0] == 1);
+
+        // cout << all << "->" << sz << endl;
+        // display(sz, sc);
+        // display(sz, cnt);
         // display(sz, query);
 
-        LL ans = 0;
-        for(int i = 0;i < q;i++) {
-            if (k[i] > all) continue;
-            int rev_rank = all + 1 - k[i];
-            assert(rev_rank >= 1 && rev_rank <= all);
-            int up = upper_bound(query, query+sz, rev_rank) - query;
-            assert(up > 0);
-            int low = up-1;
-            // printf("low = %d up = %d\n", low, up);
-            assert(low >= 0 && low < sz);
-            LL score = sc[low] + (rev_rank - query[low])/cnt[low];
-            ans += score * (i+1);
-            // printf("find %d->%d [%d, %d) score=%lld * %d\n", k[i], rev_rank, query[low], query[up], score, i+1);
+        LL ans = 0, mover = sz-1, kp = 0;
+        qs.erase(qs.begin(), qs.end());
+        for(int i = 0;i < q;i++)
+            qs.push_back(make_pair(k[i], i+1));
+        sort(qs.begin(), qs.end());
+        while(mover >= 0 && kp < qs.size()) {
+            if (query[mover] >= qs[kp].first) {
+                ans += (sc[mover] + (query[mover] - qs[kp].first) / cnt[mover]) * 1LL * qs[kp].second;
+                kp++;
+            } else {
+                mover--;
+            }
         }
 
         printf("Case #%d: %lld\n", ++o, ans);
