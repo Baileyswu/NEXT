@@ -14,6 +14,7 @@
         "vector": "cpp",
         "initializer_list": "cpp",
         "valarray": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "ostream": "cpp"
     }
 }

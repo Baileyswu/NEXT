@@ -19,7 +19,7 @@ Time limit: 60 seconds.
 1 ≤ T ≤ 50.  
 1 ≤ R ≤ 300.  
 1 ≤ C ≤ 300.  
-0 ≤ Vi, j ≤ 103 for all i, j.  
+0 ≤ Vi, j ≤ 10^3 for all i, j.  
 
 ### 解答
 预处理好从 a[i][j] 为起始位置到 a[i][k] 为止的子序列中的最大值和最小值的差值。  
