@@ -83,7 +83,6 @@ int main()
 
         // cout << all << "->" << sz << endl;
         memset(query, 0, sizeof(query));
-        query[sz - 1] = cnt[sz - 1];
         for (int i = sz - 2; i >= 0; i--)
             query[i] = query[i + 1] + 1LL * (sc[i + 1] - sc[i]) * cnt[i];
         // display(sz, query);
@@ -95,7 +94,7 @@ int main()
         LL ans = 0;
         for(int i = 0;i < q;i++) {
             if (k[i] > all) continue;
-            int rev_rank = all + 1 - k[i];
+            LL rev_rank = all + 1 - k[i];
             assert(rev_rank >= 1 && rev_rank <= all);
             int up = upper_bound(query, query+sz, rev_rank) - query;
             assert(up > 0);
