@@ -15,6 +15,7 @@
         "initializer_list": "cpp",
         "valarray": "cpp",
         "thread": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
