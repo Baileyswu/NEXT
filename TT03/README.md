@@ -50,7 +50,12 @@ Test set 2 (Hidden)
 ***
 
 ## Stable Wall
-2020 C
+[2020 C](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ff43/00000000003379bb)
+
+给 26 种类型的积木，每次只给 1 个种类的，用完以后可以换一种。问是否可以搭成给出的形状？若可以，给出积木种类的顺序。
+
+### 解答
+上面的积木对紧挨着的下面的积木有依赖关系，建立依赖的有向图，按拓扑序输出答案。
 
 ***
 
