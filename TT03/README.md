@@ -66,9 +66,7 @@ Test set 2 (Hidden)
 ***
 ## Fairies and Witches
 
-2018 C
-
-
+2018 C see [EP04](https://github.com/Baileyswu/NEXT/tree/master/EP04)
 
 ***
 ## Milk Tea 
