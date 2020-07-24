@@ -19,3 +19,4 @@
 ### Technical Training
 
 - TT03 Search & Recursion 
+- TT04 Dynamic Programming  

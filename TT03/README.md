@@ -3,9 +3,9 @@
 ## Eight Queens
 八皇后：八个皇后放在 8*8 棋盘上，不在同一行同一列以及同一斜线的摆法有多少种？
 
-递归
+TODO 递归
 
-非递归
+TODO 非递归
 
 ***
 
@@ -27,7 +27,7 @@
 ## Shifts
 [2019 G](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050e02/000000000018fd5e)
 
-两个保安值守 N 个楼层，每个保安分别选择其中的某些层，要保证每层都有人选。不同的保安值守不同的楼层会有一个开心值。要满足每个保安的值守楼层的开心值之和不低于一个给定值，分配方案有多少种？
+两个保安值守 N 个楼层，每个保安分别选择其中的某些层，要保证每层都有人选。不同的保安值守不同的楼层会有一个开心值。要满足每个保安的值守楼层的开心值之和不低于一个给定值 H，分配方案有多少种？
 
 **Limits**  
 Time limit: 40 seconds per test set.  
@@ -46,6 +46,20 @@ Test set 2 (Hidden)
 ### 小数据解法
 暴力 DFS，枚举所有可能。
 
+### TODO 大数据解法
+把楼层分为两部分，前 N/2 层保安的得分为 (p, q)，后 N-N/2 保安的得分为 (x, y). 现在要满足的条件有: x + p >= H, y + q >= H
+
+问题等价于枚举 
+
+使用的数据结构需要的性质:
+
+1. 插入 y
+2. 问有多少 y >= H-q
+
+可以使用：离散化+树状数组，线段树，AVL/红黑树/splay树/treap
+
+
+
 
 ***
 
@@ -61,12 +75,12 @@ Test set 2 (Hidden)
 
 ## Planet Distance
 
-2018 C see [EP04](https://github.com/Baileyswu/NEXT/tree/master/EP04)
+2018 C see [EP04](https://github.com/Baileyswu/NEXT/tree/master/EP04#planet-distance)
 
 ***
 ## Fairies and Witches
 
-2018 C see [EP04](https://github.com/Baileyswu/NEXT/tree/master/EP04)
+2018 C see [EP04](https://github.com/Baileyswu/NEXT/tree/master/EP04#fairies-and-witches)
 
 ***
 ## Milk Tea 
