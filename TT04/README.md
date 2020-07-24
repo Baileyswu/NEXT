@@ -42,11 +42,55 @@ dp[i][2] = sum(max(dp[c][1], dp[c][2], dp[c][0]+beauty[c])) for all c
 
 ***
 ## Plates
-TODO 2020 A
+[2020 A](https://codingcompetitions.withgoogle.com/kickstart/round/000000000019ffc7/00000000001d40bb)
+
+有 N 叠盘子，每叠 K 个，每个盘子有自己的价值，且要取某个盘子时，必须要拿上面的所有盘子。问要取 P 个盘子的价值之和最大是多少？
+
+**Limits**  
+1 ≤ T ≤ 100.  
+1 ≤ K ≤ 30.  
+1 ≤ P ≤ N * K.  
+The beauty values are between 1 and 100, inclusive.  
+
+Test set 1  
+1 ≤ N ≤ 3. 
+
+Test set 2  
+1 ≤ N ≤ 50.
+
+### 解答
+由于取某个盘子时上面所有盘子都要取，新定义 (w, v) 表示取某个盘子时需要拿的盘子的总数和价值的总数为 sum，即前缀和。这样就变成了总体积为 P 的 0-1 背包问题。有所不同的是，来自于同一叠盘子的物品是互斥的。
+
+定义状态：dp[i][w] 表示前 i 叠盘子一共取 w 个盘子时最多的价值和。共计 dp[N][P].  
+
+状态转移
+```cpp
+dp[i][w] = max(dp[i-1][w], dp[i-1][w-j] + sum[i][j])
+```
 
 ***
 ## Energy Stone
-TODO 2019 B
+[2019 B](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050eda/00000000001198c3)
+
+一个怪兽吃 N 块能量石，每块都有初始能量 Ei，能量随着时间衰减，每秒衰减 Li 直到为 0. 吃能量石花费时间 Si, 得到的能量为刚开始吃时该石头的能量. 问最多能得到多少能量?
+
+**Limits**  
+1 ≤ T ≤ 100.  
+1 ≤ N ≤ 100.  
+1 ≤ Si ≤ 100.  
+1 ≤ Ei ≤ 10^5.  
+0 ≤ Li ≤ 10^5.  
+
+### 解答
+
+状态定义: dp[i][j] 表示前 i 块能量石经过时间 j 后可吸取的能量.
+
+状态转移:
+```cpp
+dp[i][j] = max(dp[i-1][j], dp[i-1][j-S[i]] + left[i])
+left[i] = max(0, E[i]-(j-S[i])*L[i])
+```
+TODO wa
 
 ***
 ## Flattening
