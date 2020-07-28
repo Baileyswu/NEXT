@@ -14,31 +14,7 @@
 
 ***
 ## Spectating Villages
-[2019 F](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edc/000000000018666b)
-
-V 个村庄用 V-1 条边相邻。每个村庄有自己的美丽值 Bi（可能为负）。当村庄或该村庄的邻居被点亮时，就贡献了美丽值。问随意点灯能得到的最大的美丽值？
-
-### 解答
-每个村庄可能不被照亮、被邻居照亮、被自己照亮，这三种状态。即自己电灯或者邻居电灯都可能有影响。最开始需要剥离四面八方来的关系。以 1 号村庄为根节点，可以建立一棵树。对于其中的一个结点而言，只考虑以它为根节点的子树的美丽值，再将美丽值向上传递。
-
-定义状态：dp[i][j] 表示村庄 i 为状态 j 时，以它为根节点的子树的最大美丽值。共计 dp[V][3].
-
-推理转移：  
-1. 村庄 i 不被照亮，则子树上的村庄 c 都不点灯，可能为 0 或 1。这里很容易漏掉 1 这种情况。邻居亮而不点灯，也是无法照亮 i 的。
-```cpp
-dp[i][0] = sum(max(dp[c][j]) for j in {0, 1}) for all c
-```
-2. 村庄 i 被子树 c 照亮（暂不考虑它被父亲照亮，因为考虑父亲的时候会有父亲照亮子树的情况）至少有一个子结点 d 从 2 号状态转移过来，其余的从任意状态转移过来。
-```cpp
-dp[i][1] = dp[d][2]
-         + sum(max(dp[c][j]) for all j) for all c but != d
-         + beauty[i]
-```
-3. 村庄 i 电灯，则其子树一定也被照亮，可能为 1 或 2，也可能是从 0 转换到 1.
-```cpp
-dp[i][2] = sum(max(dp[c][1], dp[c][2], dp[c][0]+beauty[c])) for all c
-         + beauty[i]
-```
+2019 F see [EP2019F](https://github.com/Baileyswu/NEXT/tree/master/EP2019F#spectating-villages)
 
 ***
 ## Plates
@@ -83,22 +59,27 @@ dp[i][w] = max(dp[i-1][w], dp[i-1][w-j] + sum[i][j])
 
 ### 解答
 
-状态定义: dp[i][j] 表示前 i 块能量石经过时间 j 后可吸取的能量.
+状态定义: `dp[i][j]` 表示前 i 块能量石经过时间 j 后可吸取的能量.
 
 状态转移:
 ```cpp
 dp[i][j] = max(dp[i-1][j], dp[i-1][j-S[i]] + left[i])
 left[i] = max(0, E[i]-(j-S[i])*L[i])
 ```
-TODO wa
+但是这样转移会使得第 i 块石头一定排在前 i-1 块后面。不同顺序的结果显然是不同的。因此要先确定顺序。
+
+如果选好了吃哪几块石头，那么先吃损失得比较快的，才能保证剩余的多。另外先吃耗时比较快的，才能保证消耗其他石头的少，剩余得多。这样保证了吃石头的顺序，只要确定要不要吃某块石头。就可以用上面的 DP 式子了。
+
+具体怎么排序石头呢？假设有第 i,j 两块石头，先吃 i 或者先吃 j 会造成实际吃到的能量分别为 `Ei+Ej-Si*Lj` 和 `Ei+Ej-Sj*Li`，那应该优先让 `Si*Lj` 小的那项排在前面。 
+
 
 ***
 ## Flattening
-TODO 2019 F
+2019 F see [EP2019F](https://github.com/Baileyswu/NEXT/tree/master/EP2019F#flattening)
 
 ***
 ## Catch Some
-2019 C see [EP10](https://github.com/Baileyswu/NEXT/tree/master/EP10#catch-some)
+2019 C see [EP2019C](https://github.com/Baileyswu/NEXT/tree/master/EP2019C#catch-some)
 
 ***
 ## Lucky Dip

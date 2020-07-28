@@ -16,6 +16,7 @@
         "valarray": "cpp",
         "thread": "cpp",
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iosfwd": "cpp"
     }
 }
