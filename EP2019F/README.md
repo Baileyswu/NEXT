@@ -29,8 +29,6 @@ Test set 2 (Hidden)
 dp[i][j] = min(dp[w][j-1]+query(w+1, i)) for w < i
 ```
 
-这题恰好变了 j 次该怎么做？这时倒是可以用 `dp[n-1][k] - dp[n-1][k-1]` 得到。
-
 ***
 
 ## Spectating Villages
