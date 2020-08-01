@@ -137,8 +137,17 @@ int getSum(node, l, r) {
 单点修改：父节点求法 `x = x + lowbit(x)`  
 查询：父节点的前一个儿子 `x = x - lowbit(x)`
 
-### TODO H-index
-2019 H
+### H-index
+[2019 H](https://codingcompetitions.withgoogle.com/kickstart/round/0000000000050edd/00000000001a274e) 
+
+H-index 是指引用数超过 x 次的文章有 x 篇时，最大的 x。现在某人每年都会发一篇论文且有引用数，求每年的 H-index.
+
+#### 思路
+
+用标记数组记录引用数为 i 的论文有 a[i] 篇，那么可以求出引用数 <= i 的论文的篇数即为 a[i] 的前缀和。总的篇数减去前缀和，即为引用数过 i 的篇数，即 i 可能是一个 H-index. 要求最大的 i 才是 H-index，因此可以二分得到这个值。
+
+由于每年都会加论文，这个前缀和需要不断被更新，因此使用树状数组进行单点更新，单点查询。
+
 
 ***
 
