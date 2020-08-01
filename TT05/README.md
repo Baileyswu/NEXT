@@ -43,6 +43,10 @@
 
 [LC 394](https://leetcode-cn.com/problems/decode-string/) 同 TT03 递归的 [Robot Path Decoding](https://github.com/Baileyswu/NEXT/tree/master/TT03#robot-path-decoding) 是一个道理。这里用栈模拟了加法（字符串拼接）和乘法（字符串重复）。
 
+### 删除字符串中的所有相邻重复项
+
+[LC 1209](https://leetcode-cn.com/problems/remove-all-adjacent-duplicates-in-string-ii/) 可以依次把字符以及连续出现的次数放入栈中，如果到达 K 次则对栈进行一次清理操作。这样逐步计算可以得到最后的结果。
+
 ***
 
 ## Queue
@@ -99,6 +103,10 @@ double   x<<1
 
 二叉树，遍历，LCA，递归
 
+### Maximum Binary Tree
+
+[LC 654](https://leetcode-cn.com/problems/maximum-binary-tree/) 用了之前 [Locked doors](https://github.com/Baileyswu/NEXT/tree/master/EP2020D#locked-doors) 中构造笛卡尔树的方法。复杂度为 O(n).
+
 ***
 
 ## Trie
@@ -113,10 +121,33 @@ double   x<<1
 
 ## Segment Tree & Binary Indexed Tree
 
+线段树区间查询。
+```cpp
+int getSum(node, l, r) {
+    if range of the node is within [l, r) 
+        return value in the node
+    if range of the node is completely outside [l, r)
+        return 0
+    return getSum(node->left, l, r) + 
+           getSum(node->right, l, r)
+}
+```
+
+树状数组: 下标从 1 开始  
+单点修改：父节点求法 `x = x + lowbit(x)`  
+查询：父节点的前一个儿子 `x = x - lowbit(x)`
+
+### TODO H-index
+2019 H
 
 ***
 
-     
-654. Maximum Binary Tree
-1209. Remove All Adjacent Duplicates in String II
-1462. Course Schedule IV
+## Graph
+存储方式：邻接表或邻接矩阵  
+有向图，无向图，图上搜索  
+最短路，最小生成树  
+拓扑排序  
+
+### 有向图 DFS
+
+[LC 1462](https://leetcode-cn.com/problems/course-schedule-iv/) 记忆化搜索做的。
