@@ -8,7 +8,7 @@ int lowbit(int x) {
 }
 int query(int x) {
     int ret = 0;
-    while(x) {
+    while(x > 0) {
         ret += c[x];
         x -= lowbit(x);
     }
