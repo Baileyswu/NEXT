@@ -89,4 +89,7 @@ left[i] = max(0, E[i]-(j-S[i])*L[i])
 ## Cave Escape
 2018 G see [EP08](https://github.com/Baileyswu/NEXT/tree/master/EP08#cave-escape)
 
+***
+## Shifts
 
+2019 G see [TT03](https://github.com/Baileyswu/NEXT/tree/master/TT03#shifts)

@@ -150,7 +150,7 @@ H-index 是指引用数超过 x 次的文章有 x 篇时，最大的 x。现在�
 
 ### Shifts
 
-[2019 G](https://github.com/Baileyswu/NEXT/tree/master/TT03#shifts) 的大数据解法。
+2019 G see [TT03](https://github.com/Baileyswu/NEXT/tree/master/TT03#shifts)
 
 ***
 
