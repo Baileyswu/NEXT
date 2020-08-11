@@ -21,6 +21,22 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "shell",
+            "label": "test sample",
+            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "args": [
+                "<", 
+                "${fileDirname}\\${fileBasenameNoExtension}.in"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
         }
     ]
 }
