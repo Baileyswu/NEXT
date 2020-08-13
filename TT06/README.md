@@ -62,7 +62,6 @@ TODO LC 215
 ## 贪心
 
 TODO LC 455
-TODO LC 435
 TODO 2020 Allocation
 TODO 2019 Code-Eat Switcher
 
@@ -77,7 +76,4 @@ TODO 2019 Code-Eat Switcher
 
 为什么这样贪心是对的呢？因为已经对下课时间排好序，越先安排的课越早下课。在安排第 i 门课的时候，肯定希望前面几门课下课得越早越好。如果这样都不行，那其他的排序更不行。
 
-## Homework
-
-TODO LC 1438 Longest Continuous Subarray With Absolute Diff Less Than or Equal to Limit
 

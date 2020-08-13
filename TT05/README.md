@@ -57,8 +57,14 @@
 
 双端队列，双向搜索  
 
-### TODO 开转盘锁
-LC 752
+单调队列
+
+### 绝对差不超过限制的最长连续子数组
+[LC 1438](https://leetcode-cn.com/problems/longest-continuous-subarray-with-absolute-diff-less-than-or-equal-to-limit/)
+两个单调队列分别维护出一段区间内的最大值和最小值。
+
+### 开转盘锁
+[LC 752](https://leetcode-cn.com/problems/open-the-lock/) BFS
 
 ***
 
