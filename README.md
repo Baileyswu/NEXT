@@ -13,9 +13,12 @@
 - EP07 Kick Start 2018 Round F
 - EP08 Kick Start 2018 Round G
 - EP09 Kick Start 2018 Round H
+
 - EP2019C Kick Start 2019 Round C
 - EP2019F Kick Start 2019 Round F
 - EP2020D Kick Start 2020 Round D
+- EP2020E Kick Start 2020 Round E
+
 
 ### Technical Training
 
@@ -24,3 +27,4 @@
 - TT05 Data Structure
 - TT06 Greedy / String processing
 - TT07 Divide and conquer/Binary search
+- TT08 Graph algorithm

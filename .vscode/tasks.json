@@ -2,7 +2,7 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "win10 C/C++: g++.exe build active file",
+            "label": "C/C++ on win10: g++.exe build active file",
             "command": "${env:mingw}\\g++.exe",
             "args": [
                 "-g",
@@ -19,11 +19,11 @@
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
         },
         {
             "type": "shell",
-            "label": "C/C++: clang++ build active file",
+            "label": "C/C++ on macos: clang++ build active file",
             "command": "/usr/bin/clang++",
             "args": [
                 "-std=c++17",
@@ -43,6 +43,30 @@
                 "kind": "build",
                 "isDefault": true
             }
+        },
+        {
+            "type": "shell",
+            "label": "C/C++ on macos: input tests",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.run",
+            "args": [
+                "<",
+                "${fileDirname}/${fileBasenameNoExtension}.in"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "dependsOn":["C/C++ on macos: clang++ build active file"]
+        },
+        {
+            "type": "shell",
+            "label": "C/C++ on macos: clear run temp files",
+            "command": "rm",
+            "args": [
+                "-rf",
+                "${fileDirname}/*.run*"
+            ],
+            "group": "none",
         }
     ],
     "version": "2.0.0"
