@@ -56,7 +56,10 @@
                 "kind": "test",
                 "isDefault": true
             },
-            "dependsOn":["C/C++ on macos: clang++ build active file"]
+            "dependsOn":[
+                "C/C++ on macos: clang++ build active file",
+                "C/C++ on macos: touch a input data file"
+            ]
         },
         {
             "type": "shell",
@@ -66,7 +69,14 @@
                 "-rf",
                 "${fileDirname}/*.run*"
             ],
-            "group": "none",
+        },
+        {
+            "type": "shell",
+            "label": "C/C++ on macos: touch a input data file",
+            "command": "touch",
+            "args": [
+                "${fileDirname}/${fileBasenameNoExtension}.in"
+            ],
         }
     ],
     "version": "2.0.0"
