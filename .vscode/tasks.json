@@ -6,7 +6,7 @@
             "command": "${env:mingw}\\g++.exe",
             "args": [
                 "-g",
-                "${file}",
+                "${fileBasenameNoExtension}.cpp",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
@@ -29,7 +29,7 @@
                 "-std=c++17",
                 "-stdlib=libc++",
                 "-g",
-                "${file}",
+                "${fileBasenameNoExtension}.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.run"
             ],
@@ -46,7 +46,7 @@
         },
         {
             "type": "shell",
-            "label": "C/C++ on macos: input tests",
+            "label": "C/C++ on macos: run tests",
             "command": "${fileDirname}/${fileBasenameNoExtension}.run",
             "args": [
                 "<",

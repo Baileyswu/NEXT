@@ -30,12 +30,12 @@
             "type": "lldb",
             "request": "launch",
             "program": "${fileDirname}/${fileBasenameNoExtension}.run",
-            "args": [],
+            "args": ["<", "${fileDirname}\\${fileBasenameNoExtension}.in"],
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "C/C++: clang++ build active file",
+            "preLaunchTask": "C/C++ on macos: clang++ build active file",
             "console": "integratedTerminal",
-            "terminal": "integrated",
+            "terminal": "external",
         },
     ]
 }
