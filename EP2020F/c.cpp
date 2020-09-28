@@ -53,6 +53,10 @@ int minmax(pr &a, pr &b, int player) {
         return score(player);
     }
 
+    if(!move(a)) {
+        return -minmax(b, a, player^1^2);
+    }
+
     for(int i = 0;i < 3;i++) {
         int id = a.second & 1;
         int ix = a.first + dp[id][i][0];
@@ -62,13 +66,8 @@ int minmax(pr &a, pr &b, int player) {
 
         // print_triangle();
         pr c = make_pair(ix, iy);
-        if(move(b)) {
-            int s = -minmax(b, c, player^1^2);
-            ret = max(ret, s);
-        } else {
-            int s = minmax(c, b, player);
-            ret = max(ret, s);
-        }
+        int s = -minmax(b, c, player^1^2);
+        ret = max(ret, s);
         mp[ix][iy] = 0;
     }
     // printf("%d in [%d, %d] ret=%d\n", player, a.first, a.second, ret);
