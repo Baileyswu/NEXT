@@ -29,7 +29,7 @@
                 "-std=c++17",
                 "-stdlib=libc++",
                 "-g",
-                "${fileBasenameNoExtension}.cpp",
+                "${fileDirname}/${fileBasenameNoExtension}.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.run"
             ],

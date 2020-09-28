@@ -12,14 +12,21 @@ int dp[2][3][2] = {
 bool not_ok(int &tx, int &ty) {
     return tx < 1 || tx > n || ty < 1 || ty >= 2*tx || mp[tx][ty];
 }
+void print_triangle() {
+    for(int i = 1;i <= n;i++) {
+        for(int j = 1;j <= (n-i)*2;j++)
+            printf(" ");
+        for(int j = 1;j < 2*i;j++) {
+            printf("%d%c", mp[i][j], " \n"[j==2*i-1]);
+        }
+    }
+}
 int score(int x) {
     // printf("score =========\n");
+    // print_triangle();
     int a = 0, b = 0;
     for(int i = 1;i <= n;i++) {
-        // for(int j = 1;j <= (n-i)*2;j++)
-        //     printf(" ");   
         for(int j = 1;j < 2*i;j++) {
-            // printf("%d%c", mp[i][j], " \n"[j==2*i-1]);
             if(mp[i][j] == 1) a++;
             else if(mp[i][j] == 2) b++;
         }
@@ -38,7 +45,7 @@ bool move(pr &a) {
     }
     return false;
 }
-int play(pr &a, pr &b, int player) {
+int minmax(pr &a, pr &b, int player) {
     // printf("play %d [%d, %d]\n", player, a.first, a.second);
     int ret = -99999;
     if(!move(a) && !move(b)) {
@@ -53,26 +60,18 @@ int play(pr &a, pr &b, int player) {
         if(not_ok(ix, iy)) continue;
         mp[ix][iy] = player;
 
-        // for(int i = 1;i <= n;i++) {
-        //     for(int j = 1;j <= (n-i)*2;j++)
-        //         printf(" ");
-        //     for(int j = 1;j < 2*i;j++) {
-        //         printf("%d%c", mp[i][j], " \n"[j==2*i-1]);
-        //     }
-        // }
-
-        int tmin = INF, tmax = -INF;
+        // print_triangle();
         pr c = make_pair(ix, iy);
         if(move(b)) {
-            int s = -play(b, c, player^1^2);
+            int s = -minmax(b, c, player^1^2);
             ret = max(ret, s);
         } else {
-            int s = play(c, b, player);
+            int s = minmax(c, b, player);
             ret = max(ret, s);
         }
         mp[ix][iy] = 0;
     }
-    // printf("%d in [%d, %d]\n", player, a.first, a.second);
+    // printf("%d in [%d, %d] ret=%d\n", player, a.first, a.second, ret);
     return ret;
 }
 int work(pr &a, pr &b, vector<pr> &c) {
@@ -80,7 +79,7 @@ int work(pr &a, pr &b, vector<pr> &c) {
     mp[a.first][a.second] = 1;
     mp[b.first][b.second] = 2;
     for(auto x : c) mp[x.first][x.second] = 3;
-    return play(a, b, 1);
+    return minmax(a, b, 1);
 }
 int main() {
     int T, o = 0;
