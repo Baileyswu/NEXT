@@ -29,6 +29,7 @@
         "ios": "cpp",
         "map": "cpp",
         "system_error": "cpp",
-        "algorithm": "cpp"
+        "algorithm": "cpp",
+        "queue": "cpp"
     }
 }
