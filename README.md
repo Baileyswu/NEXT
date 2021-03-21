@@ -5,6 +5,22 @@
 
 ### Kick Start
 
+**2021**
+
+- EP2021A Kick Start 2021 Round A
+
+**2020**
+
+- EP2020D Kick Start 2020 Round D
+- EP2020E Kick Start 2020 Round E
+
+**2019**
+
+- EP2019C Kick Start 2019 Round C
+- EP2019F Kick Start 2019 Round F
+
+**2018**
+  
 - EP02 Kick Start 2018 Round A
 - EP03 Kick Start 2018 Round B
 - EP04 Kick Start 2018 Round C
@@ -13,12 +29,6 @@
 - EP07 Kick Start 2018 Round F
 - EP08 Kick Start 2018 Round G
 - EP09 Kick Start 2018 Round H
-
-- EP2019C Kick Start 2019 Round C
-- EP2019F Kick Start 2019 Round F
-- EP2020D Kick Start 2020 Round D
-- EP2020E Kick Start 2020 Round E
-
 
 ### Technical Training
 

@@ -1,45 +1,29 @@
 #include<bits/stdc++.h>
 using namespace std;
 #define LL long long
-#define ULL unsigned long long
-const int N = 5, B = 20, INF = 1e8;
-ULL bits[B] = {1};
-int n;
-int a[N][N], b[N][N], R[N], C[N], qr[N], qc[N];
-ULL cost[66000];
-ULL state(){
-    ULL ret = 0;
-    for(int i = 0;i < n;i++)
-        for(int j = 0;j < n;j++) if(a[i][j] == -1) {
-            ret += bits[i*n+j];
-        }
-    return ret;
+const int N = 510;
+int a[N][N], b[N][N], R[N], C[N], p[N*2];
+struct node{
+    int x, y, v;
+    node(){}
+    node(int x, int y, int v): x(x), y(y), v(v) {}  
+};
+bool operator < (const node &a, const node&b) {
+    return a.v < b.v;
+}
+priority_queue<node> Q;
+
+int find(int x) {
+    if(x == p[x]) return p[x];
+    return p[x] = find(p[x]);
 }
 
-bool check_single(ULL s, int d) {
-    int bn = n * n;
-    int x = d / n;
-    int y = d % n;
-    int qx = 0, qy = 0;
-    for(int i = 0;i < bn;i++) if(i != d) {
-        if(i/n == x) { 
-            if(s & bits[i]) qx++;
-        } if(i%n == y) {
-            if(s & bits[i]) qy++;
-        }
-    }
-    return qx == 0 || qy == 0;
-}
 int main() {
-    for(int i = 1;i < B;i++)
-        bits[i] = bits[i-1] << 1;
     int T, o = 0;
     cin >> T;
     while(T--) {
+        int n;
         LL ans = 0;
-        memset(qr, 0, sizeof(qr));
-        memset(qc, 0, sizeof(qc));
-
         cin >> n;
         for(int i = 0;i < n;i++)
             for(int j = 0;j < n;j++) {
@@ -52,37 +36,27 @@ int main() {
         for(int i = 0;i < n;i++) cin >> R[i];
         for(int i = 0;i < n;i++) cin >> C[i];
 
-        int blank = 0;
         for(int i = 0;i < n;i++)
-            for(int j = 0;j < n;j++) {
-                if(a[i][j] == -1) {
-                    qr[i]++;
-                    qc[j]++;
-                    blank++;
-                }
+            for(int j = 0;j < n;j++) if(a[i][j] == -1) {
+                Q.push(node(i, j+n, b[i][j]));
+                ans += b[i][j];
             }
-        
-        int bn = n*n;
-        ULL states = 1 << bn;
-        ULL endstate = state();
-        // printf("endstate = %llu\n", endstate);
 
-        cost[0] = 0;
-
-        for(ULL s = 1; s < states;s++) {
-            if((s | endstate) != endstate) continue;
-            // printf("checkstate s = %llu\n", s);
-            cost[s] = INF;
-            for(int i = 0;i < bn;i++) {
-                if(s & bits[i]) {
-                    ULL last = s ^ bits[i];
-                    if(check_single(s, i))  cost[s] = min(cost[s], cost[last]);
-                    else cost[s] = min(cost[s], cost[last] + b[i/n][i%n]);
-                }
-            }
-            // printf(" cost = %llu\n", cost[s]);
+        for(int i = 0;i < (n<<1);i++) {
+            p[i] = i;
         }
-        ans = cost[endstate];
+
+        while(!Q.empty()) {
+            auto ft = Q.top(); Q.pop();
+            int x = ft.x, y = ft.y, v = ft.v;
+            // printf("x=%d y=%d v=%d\n", x, y, v);
+            p[x] = find(x);
+            p[y] = find(y);
+            if(p[p[x]] != p[y]) {
+                p[p[x]] = p[y];
+                ans -= v;
+            }
+        }
         printf("Case #%d: %lld\n", ++o, ans);            
     }
     return 0;
